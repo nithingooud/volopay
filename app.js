@@ -16,10 +16,10 @@ app.get('/api/user', (req,res)=>{
     let {id} = req.body;
     console.log(id);
     try {
-        const result =  employee.findOne({ id });
-        console.log(result);
+        const result =  employee.findOne({ id : parseInt(id) });
         if(result){
-            res.json(result);
+            console.log(result);
+            res.json({result});
         }else{
             res.json(404).json({error:"user not found"});
         }
